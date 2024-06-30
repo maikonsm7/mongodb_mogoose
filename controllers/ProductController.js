@@ -3,7 +3,7 @@ const Product = require('../models/Product')
 class ProductController {
     static async showProducts(req, res) {
         try {
-            const products = await Product.getProducts()
+            const products = await Product.find().lean()
             res.render('products/all', {products})
         } catch (error) {
             console.log('Erro: ', error)
@@ -19,7 +19,7 @@ class ProductController {
         const price = req.body.price
         const description = req.body.description
 
-        const product = new Product(name, price, description)
+        const product = new Product({name, price, description})
 
         try {
             await product.save()
@@ -32,7 +32,7 @@ class ProductController {
     static async getProduct(req, res){
         const id = req.params.id
         try {
-            const product = await Product.getProductById(id)
+            const product = await Product.findById(id).lean()
             res.render('products/product', {product})
         } catch (error) {
             console.log('Erro: ', error)
@@ -42,7 +42,7 @@ class ProductController {
     static async removeProduct(req, res){
         const id = req.params.id
         try {
-            await Product.removeProductById(id)
+            await Product.deleteOne({_id: id})
             res.redirect('/products')
         } catch (error) {
             console.log('Erro: ', error)
@@ -52,7 +52,7 @@ class ProductController {
     static async editProduct(req, res){
         const id = req.params.id
         try {
-            const product = await Product.getProductById(id)
+            const product = await Product.findById(id).lean()
             res.render('products/edit', {product})
         } catch (error) {
             console.log('Erro: ', error)
@@ -65,10 +65,10 @@ class ProductController {
         const price = req.body.price
         const description = req.body.description
 
-        const product = new Product(name, price, description)
+        const product = { name, price, description }
 
         try {
-            await product.updateProduct(id)
+            await Product.updateOne({_id: id}, product)
             res.redirect('/products')
         } catch (error) {
             console.log('Erro: ', error)
