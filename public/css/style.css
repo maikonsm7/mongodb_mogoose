@@ -1,0 +1,121 @@
+:root{
+    --cor-tema: #39FF14;
+    --cor-bg: #222;
+}
+*{
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    background-color: var(--cor-bg);
+    color: white;
+}
+.container{
+    max-width: 800px;
+    margin: auto;
+    padding: 1em;
+}
+.navbar{
+    border-bottom: 1px solid var(--cor-tema);
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    padding: .7em;
+}
+.navbar ul{
+    list-style: none;
+    margin: 0;
+}
+.navbar ul li{
+    display: inline;
+    padding: .5em;
+}
+.navbar ul li a{
+    text-decoration: none;
+    transition: 0.5s;
+    color: var(--cor-tema);
+    font-weight: bold;
+}
+.navbar ul li a:hover{
+    opacity: .6;
+}
+.product-container{
+    margin: 0 auto;
+    width: 230px;
+}
+.link{
+    text-decoration: none;
+    color: var(--cor-tema);
+}
+.form{
+    padding-bottom: 1em;
+}
+.form-control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+}
+.form-control label{
+    font-weight: bold;
+    margin-top: 3px;
+}
+.form-control input{
+    padding: .8em;
+    margin-top: 3px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn{
+    text-decoration: none;
+    padding: .8em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: var(--cor-tema);
+    transition: 0.3s;
+    color: var(--cor-bg);
+    border: none;
+    cursor: pointer;
+}
+.btn-secondary{
+    background-color: var(--cor-bg);
+    color: var(--cor-tema);
+    border: 1px solid var(--cor-tema);
+}
+.btn-actions{
+    padding: .5em;
+    font-size: .7em;
+    margin-left: 1em;
+}
+.btn:hover{
+    opacity: .6;
+}
+.btn-secondary:hover{
+    background-color: var(--cor-tema);
+    color: var(--cor-bg);
+    opacity: 1;
+}
+.list-products{
+    margin-top: 1em;
+}
+.list-products ul{
+    list-style: none;
+}
+.list-products ul li{
+    padding: 1em;
+    border-bottom: 1px solid rgb(75, 75, 75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.label2{
+    color: gray;
+    font-size: .8em;
+}

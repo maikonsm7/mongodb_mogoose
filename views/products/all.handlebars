@@ -1,0 +1,22 @@
+<div class="title-container">
+<h2>Todos os Produtos</h2>
+<a href="/products/add" class="btn">Adicionar</a>
+</div>
+
+<div class="list-products">
+{{#each products}}
+<ul>
+    <li>
+        <div class="info">
+        <span class="label">{{this.name}}</span>
+        <span class="label2">Preço: {{this.price}}</span>
+        </div>
+        <span class="actions">
+            <a href="/products/{{this._id}}" class="btn btn-secondary btn-actions">Ver</a>
+            <a href="/products/edit/{{this._id}}" class="btn btn-secondary btn-actions">Editar</a>
+            <a href="/products/remove/{{this._id}}" class="btn btn-secondary btn-actions">Remover</a>
+        </span>
+    </li>
+</ul>
+{{/each}}
+</div>
